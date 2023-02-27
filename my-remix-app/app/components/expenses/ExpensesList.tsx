@@ -1,6 +1,7 @@
 import ExpenseListItem from "./ExpensesListItem";
 
 function ExpensesList({ expenses } : any) {
+  // console.log(expenses)
 
   return (
     <ol id="expenses-list">
