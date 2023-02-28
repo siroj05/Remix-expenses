@@ -4,9 +4,9 @@ import { FaLock, FaUserPlus } from 'react-icons/fa';
 function AuthForm() {
   const [searchParams] = useSearchParams()
   const authMode = searchParams.get('mode') || 'login';
-  // console.log(authMode)
   const submitButton = authMode === 'login' ? 'login' : 'Create user';
   const toggleButton = authMode === 'login' ? 'Create a new user' : 'Log in with existing user';
+  // console.log(toggleButton)
   return (
     <form method="post" className="form" id="auth-form">
       <div className="icon-img">
