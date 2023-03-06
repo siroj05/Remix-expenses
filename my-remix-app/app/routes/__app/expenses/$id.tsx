@@ -33,8 +33,8 @@ export async function action({request, params}:any){
         return redirect('/expenses');
     }
     else if(request.method === "DELETE"){
-        deleteExpense(expenseId)
-        return redirect('/expenses');
+        await deleteExpense(expenseId)
+        return {deleteId : expenseId}
     }
 }
 
