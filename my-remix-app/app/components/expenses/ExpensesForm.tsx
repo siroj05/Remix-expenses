@@ -11,6 +11,11 @@ function ExpenseForm() {
   // -----------------------------------
     const expense = matches.find((match:any)=> match.id === 'routes/__app/expenses')?.data
     const expenseData = expense.find((exp:any)=>exp.id === params.id)
+
+    if(params.id && !expenseData){
+      return <p>Invalid expense id.</p>
+    }
+
     const today = new Date().toISOString().slice(0, 10);
     const isSubmitting = navigate.state !== 'idle'
 
