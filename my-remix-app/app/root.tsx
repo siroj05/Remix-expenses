@@ -53,9 +53,11 @@ export function CatchBoundary(){
   return(
     <Document title={caughtResponse.statusText}>
       <main>
-        <p>{caughtResponse.data?.message || 'Something went wrong, please try again '}</p>
-        <p>Back to <Link to={'/'}>safety</Link></p>
-        <Error/>
+        <Error title={caughtResponse.statusText}>
+          <p>{caughtResponse.data?.message || 'Something went wrong, please try again '}</p>
+          <p>Back to <Link to={'/'}>safety</Link></p>
+        </Error>
+        
       </main>
     </Document>
   )

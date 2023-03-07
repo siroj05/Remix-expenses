@@ -11,8 +11,7 @@ export async function addExpense(expenseData){
         });
     }
     catch (error){
-        console.log(error);
-        throw error;
+        throw new Error('Failed to add data')
     }
 }
 
@@ -25,7 +24,7 @@ export async function getExpenses(){
         })
         return expenses
     } catch (error) {
-        throw error;
+        throw new Error('Failed to fetch')
     }
 }
 
@@ -34,7 +33,7 @@ export async function getExpense(id){
         const expenses = await prisma.expense.findFirst({where : {id}});
         return expenses;
     } catch (error) {
-        throw error;
+        throw new Error('Failed to fetch')
     }
 }
 
@@ -51,7 +50,7 @@ export async function updateExpense(id, expenseData){
             }
         )
     } catch (error) {
-        throw error;
+        throw new Error('Failed to update')
     }
 }
 
@@ -61,6 +60,6 @@ export async function deleteExpense(id){
             where : {id}
         })
     } catch (error) {
-        throw error;
+        throw new Error('Failed to delete')
     }
 }
