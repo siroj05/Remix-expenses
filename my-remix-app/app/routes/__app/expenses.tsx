@@ -4,6 +4,7 @@ import ExpensesList from "~/components/expenses/ExpensesList";
 import { FaPlus, FaDownload } from "react-icons/fa";
 import { getExpenses } from "~/data/expenses.server";
 import { json } from "@remix-run/node";
+import { requireUserSession } from "~/data/auth.server";
 // import { json } from "@remix-run/node";
 
 export default function Expenses(){
@@ -35,7 +36,8 @@ export default function Expenses(){
     )
 }
 
-export async function loader(){
+export async function loader({request}:any){
+    await requireUserSession(request)
     const expenses : any = await getExpenses();
     return expenses;
     // if(!expenses || expenses === 0 ){
