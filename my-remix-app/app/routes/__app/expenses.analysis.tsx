@@ -4,6 +4,7 @@ import { getExpenses } from "~/data/expenses.server"
 import { useLoaderData } from "react-router"
 import Error from "~/components/util/Error"
 import { useCatch } from "@remix-run/react"
+import { requireUserSession } from "~/data/auth.server"
 export default function ExpansesAnalysisPages(){
     const expenseData = useLoaderData()
     return(
@@ -23,7 +24,8 @@ export function CatchBoundary(){
     </main>
 }
 
-export async function loader(){
-    const expenseData = await getExpenses()
+export async function loader({request}:any){
+    const userId = await requireUserSession(request)
+    const expenseData = await getExpenses(userId)
     return expenseData
 }
