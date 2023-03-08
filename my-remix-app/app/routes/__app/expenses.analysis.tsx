@@ -25,7 +25,7 @@ export function CatchBoundary(){
 }
 
 export async function loader({request}:any){
-    await requireUserSession(request)
-    const expenseData = await getExpenses()
+    const userId = await requireUserSession(request)
+    const expenseData = await getExpenses(userId)
     return expenseData
 }

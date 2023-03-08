@@ -37,8 +37,8 @@ export default function Expenses(){
 }
 
 export async function loader({request}:any){
-    await requireUserSession(request)
-    const expenses : any = await getExpenses();
+    const userId = await requireUserSession(request)
+    const expenses : any = await getExpenses(userId);
     return expenses;
     // if(!expenses || expenses === 0 ){
     //     throw json(
