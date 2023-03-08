@@ -26,9 +26,10 @@ export async function action({request}:any){
         //    return redirect('/expenses');
         }
     } catch (error : any) {
-        if(error.status === 422){
-            return {credentials : error.message}
+        if (error.status === 422 || error.status === 401 || error.status === 403) {
+            return { credentials: error.message}
         }
+        return {credentials : 'Something went wrong'}
     }
 }
 
