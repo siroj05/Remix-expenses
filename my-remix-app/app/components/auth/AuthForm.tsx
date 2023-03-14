@@ -7,7 +7,6 @@ function AuthForm() {
   const authMode = searchParams.get('mode') || 'login';
   const submitBtnCap = authMode === 'login' ? 'login' : 'Create user';
   const toggleButton = authMode === 'login' ? 'Create a new user' : 'Log in with existing user';
-  // console.log(toggleButton)
   const isSubmitting = navigate.state !== 'idle'
   const validationErrors = useActionData;
   return (

@@ -23,7 +23,9 @@ function Document({title, children}:any){
   return(
     <html lang="en">
       <head>
-        <title>{title}</title>
+        {
+          title && <title>{title}</title> 
+        }
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap" rel="stylesheet" />
